@@ -1,0 +1,17 @@
+header{
+    display: flex;
+    margin: 2% auto;
+    .logo{
+        margin-left: 3%;
+        img{
+            width:10%;
+            height: auto;
+        }
+    }
+
+    nav{
+        margin-right: 3%;
+        display: flex;
+        flex-direction: row;
+    }
+}
