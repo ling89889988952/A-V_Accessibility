@@ -17,6 +17,7 @@ export default {
     methods:{
         start(){
             this.$emit("authenticated", true);
+            // localStorage.setItem("startUser", JSON.stringify("user-use"));
             this.$router.replace({ name: "chanel" });
         }
     }

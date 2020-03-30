@@ -3,13 +3,14 @@
 html { position: relative; min-height: 100%; }
 
 html body{
-    background-color:white;
+    background: url(../images/bac_white.png) repeat;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .changeColor{
-    background-color: black;
+    background:url(../images/bac_black.jpg) repeat;
 }
+
 
 @import './modules/header.scss';
 @import './modules/footer.scss';

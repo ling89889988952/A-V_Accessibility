@@ -19,13 +19,13 @@
               <div class="logo">
                 <img src="images/roku.svg" alt="Roku logo">
             </div>
-            <nav class="float-right">document.body.style.zoom = "200%";
+            <nav class="float-right">
               <ul>
                 <li v-if="authenticated" v-on:click="brightness()"><i class="fas fa-lightbulb"></i></li>
                 <li v-if="authenticated" v-on:click="zoomin()"><i class="fas fa-search-plus"></i></li>
-                <li v-if="authenticated" v-on:click="audiocontrol()"><i class="fas fa-microphone-alt"></i></li>
-                <li v-if="authenticated" v-on:click="speechcontent()"><i class="fas fa-headphones-alt"></i></li>
-                <li v-if="authenticated" v-on:click="soundoff()"> <i class="fas fa-volume-mute"></i></li>
+                <li v-if="authenticated" v-on:click="audiocontrol()"><i class="fas fa-microphone"></i></li>
+                <li v-if="authenticated" v-on:click="speechcontent()"><i class="fas fa-headphones"></i></li>
+                <li v-if="authenticated" v-on:click="soundoff()"><i class="fas fa-volume-off"></i></li>
                 <li v-if="authenticated" v-on:click="substitle()"> <i class="far fa-closed-captioning"></i></li>
                 <li v-if="authenticated" v-on:click="logout()"><i class="fas fa-power-off"></i></li>
               </ul>
