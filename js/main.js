@@ -25,6 +25,10 @@ import ChanelComponent  from "./modules/chanelComponent.js";
                 // push user back to login page
                 this.$router.push({ name: "start" });
                 this.authenticated = false;
+
+                // if(localStorage.getItem("startUser")){
+                //   localStorage.removeItem("startUser");
+                // }
         
               },
 
@@ -32,6 +36,8 @@ import ChanelComponent  from "./modules/chanelComponent.js";
             brightness() {
               const el = document.body;
               el.classList.toggle("changeColor");
+              const container = document.querySelector('.chanel-container');
+              container.classList.toggle("changeBck");
             },
 
             zoomin(){
@@ -64,6 +70,15 @@ import ChanelComponent  from "./modules/chanelComponent.js";
             }
 
             },
+
+            // created:function(){
+            //   if(localStorage.getItem("startUser")){
+            //     this.authenticated = true;
+            //     this.$router.push({ name:"channel" });
+            //   }else{
+            //     this.$router.push({ name: "start"});
+            //   }
+            // },
 
         router: router  
     }).$mount('#app');
