@@ -1,20 +1,18 @@
 export default {
-  props: ['media'],
+  props: ['media','subs'],
 
   template:`
       <div class="playarea">
-          <video  controls autoplay width="100%" class="audio-volume" >
+          <video  controls autoplay width="100%" class="audio-volume" :key="media.vidsource">
             <source :src="'video/'+ media.vidsource" :type="media.type">
-            <track  v-if="sub" :src="'media/'+ media.vttsource"  kind="subtitles" srclang="en" label="English">
+            <track  v-if="subs" :src="'video/'+ media.vttsource"  kind="subtitles" srclang="en" label="English" default>
             <p>{{ media.description }}</p>
-          </video>    
+          </video>
+          <p v-html="media.notice" class="notice">{{ media.notice }}</p>    
       </div>
         
     `,
-    data(){
-      return{
-        sub : this.$root.subcondition,
-        // sub:''
-      }
-    }
+  
 }
+
+  

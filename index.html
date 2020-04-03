@@ -18,10 +18,9 @@
               <ul>
                 <li v-if="authenticated" v-on:click="brightness()"><img src="images/bulb.svg" alt="change day or night browsing mode"></li>
                 <li v-if="authenticated" v-on:click="zoomin()"><img src="images/zoom.svg" alt="zoom in"></li>
-                <!-- <li v-if="authenticated" v-on:click="soundoff()"><i class="fas fa-volume-off"></i></li> -->
-                <li v-if="authenticated" v-on:click="headphone()"><img src="images/earphone.svg" alt="Headphone mode"></li>
-                <!-- <li v-if="condition" v-on:click="night()"><img src="images/night.svg" alt="Night watch video mode"></li> -->
-                <li v-if="condition" v-on:click="addsubstitle()"><img src="images/substitle.svg" alt="add sustitle"></li>
+                <!-- <li v-if="authenticated" v-on:click="headphone()"><img src="images/earphone.svg" alt="headphone mode"></li>
+                <li v-if="condition" v-on:click="mutesound()"><img src="images/mute.svg" alt="mute sound"></li> -->
+                <li v-if="condition" v-on:click="subcondition()"><img src="images/substitle.svg" alt="add Substitle"></li>
               </ul>
             </nav>
           </header>
@@ -36,7 +35,7 @@
             </div>
 
             <div class="hidden-movies" :class="{'show-movie' : showDetails}">  <!-- hidden-movies -->
-                <player v-bind:media="media" />
+                <player v-bind:media="media" :subs="subT" />
             </div>
         </div>
     </main>
