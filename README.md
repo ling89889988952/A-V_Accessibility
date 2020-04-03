@@ -3,7 +3,7 @@
 This project is a video app based on Roku. 
 
 ## Prerequisites
-This project use the Vue.js to create the front-end framework and making them accessible for everyone, create many functions in order to help users to user it conveniently, like adjust the color based on the environments, audio control, read website and so on.
+This project use the Vue.js to create the front-end framework and making them accessible for everyone, create many functions in order to help users to user it conveniently, like adjust the color based on the environments,read website,zoom in and add substile.
 
 - Insatll SASS(scss) 
     - Macs have it installed by default.
