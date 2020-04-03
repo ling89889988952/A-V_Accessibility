@@ -65,18 +65,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 2. https://mp3paw.com/mp3-download/4773982/Queen-Bohemian-Rhapsody
 
 
-<div class="row-image">
-        <img src="images/home.jpg" alt="home alone picture">
-        <button @click.prevent="startVideo">Start</button>
-        </div>
-
-        <div class="row-image">
-        <img src="images/friends.png" alt="friends picture">
-        <button @click.prevent="startVideo">Start</button>
-
-
-        <div class="hidden-movies">
-    <audio ref="audio" controls muted>
-        <source src="media/queen.mp3" type="audio/mpeg">
-    </audio>    
-    </div>
