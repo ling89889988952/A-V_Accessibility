@@ -1,96 +1,69 @@
-import StartComponent   from "./modules/startComponent.js"
-import ChanelComponent  from "./modules/chanelComponent.js";
 
-
-
-(() => {
-    let router = new VueRouter({
-        routes: [
-            {path:'/', redirect: { name: "start" }},
-            {path:'/start', name:'start', component:StartComponent},
-            {path:'/chanel', name:'chanel', component:ChanelComponent},
-        ]
-    });
-
+    import playerComponent from './modules/playerComponent.js';
+    
     const vm = new Vue({
+      
         data:{
-            authenticated: false,
-        },
-        methods: {
-            setAuthenticated(status) {
-              this.authenticated = status;
+            authenticated: true,
+            condition: false,
+            subcondition:false,
+            volume:'',
+
+            mediadata:[
+              { name: "queen brand album picture", cover:"queen.png", vidsource:"queen.mp3", type:"audio/mpeg",vttsource:"queen.vtt",description:"Your browser doesn't support HTML5 audio. Here is a <a href='media/queen.mp3'>link to the audio</a> instead."},
+              { name: "home alone picture", cover:"home.jpg", vidsource:"movie.mp4", type:"video/mp4",vttsource:"home.vtt",description:"Your browser doesn't support HTML5 video. Here is a <a href='media/movie.mp4'>link to the video</a> instead."},
+              { name: "Friends Picture", cover:"friends.png", vidsource:"tvshow.mp4", type:"video/mp4",vttsource:"friends.vtt",description:"Your browser doesn't support HTML5 video. Here is a <a href='media/tvshows.mp4'>link to the video</a> instead."},
+            ],
+
+            media:{
+              vidsource:"",
             },
 
-            logout() {
-                // push user back to login page
-                this.$router.push({ name: "start" });
-                this.authenticated = false;
+            showDetails: false
 
-                // if(localStorage.getItem("startUser")){
-                //   localStorage.removeItem("startUser");
-                // }
-        
-              },
-
-
+        },
+        methods: {
+            
             brightness() {
               const el = document.body;
               el.classList.toggle("changeColor");
-              const container = document.querySelector('.chanel-container');
-              container.classList.toggle("changeBck");
             },
 
             zoomin(){
               const el = document.body;
               if(el.style.zoom == "100%"){
-              el.style.zoom = "200%";
+              el.style.zoom = "150%";
             }else{
               el.style.zoom = "100%";
             }
             },
 
-            speechcontent(){
-              if ('speechSynthesis' in window) {
-                var synthesis = window.speechSynthesis;
-              
-              } else {
-                console.log('Text-to-speech not supported.');
-              }
+            
+            headphone(){
+              this.volume = 0.2;
             },
 
-            soundoff(){
-              const audio_control = document.querySelectorAll('audio_control');
-
-              if(audio_control.muted = true){
-              audio_control.muted = false;
-              
-              }else{
-                audio_control.muted = true;
-              }
-            }
-
+          
+          addsubstitle(){
+            this.subcondition = true;
             },
 
-            // created:function(){
-            //   if(localStorage.getItem("startUser")){
-            //     this.authenticated = true;
-            //     this.$router.push({ name:"channel" });
-            //   }else{
-            //     this.$router.push({ name: "start"});
-            //   }
-            // },
+          startVideo({vidsource,type, vttsource, description}) {
+ 
+            this.media.vidsource = vidsource;
+            this.media.type = type;
+            this.media.vttsource = vttsource;
+            this.media.description = description;
+      
+            // make the movie details show up
+            this.showDetails = true;
+            this.condition = true;
+          },
 
-        router: router  
+         
+
+          },
+            components:{
+              player:playerComponent,}
+
     }).$mount('#app');
-
-    router.beforeEach((to, from, next) => {
-        //console.log('router guard fired!', to, from, vm.authenticated);
-    
-        if (vm.authenticated == false) {
-          next("/start");
-        } else {
-          next();
-        }
-      });
-
-})();
