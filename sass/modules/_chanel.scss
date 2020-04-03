@@ -44,3 +44,26 @@
         }
     }
 }
+
+.hidden-movies{
+    width: 70%;
+    margin:5% 15%;
+    transition: all 0.7s;
+    max-height: 0;
+    display: none;
+  
+}
+
+.show-movie{
+    display: block; 
+    max-height: 800px; 
+}
+
+
+.playarea{
+    width: 100%;
+    margin: 0 auto;
+    // transition: all 0.7s;
+   }
+  
+
